@@ -19,6 +19,7 @@ const ProductListPage = () =>  {
     ['getProducts'],
     getProducts,
     {
+      staleTime: 3600 * 1000,
       initialDataUpdatedAt: () => queryClient.getQueryState('getProducts')?.dataUpdatedAt,
       initialData: () => {
         // Get the query state
