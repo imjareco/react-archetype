@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-
-import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from 'react-query';
 import { addProduct } from 'product/services';
 
 import Button from '@mui/material/Button';
@@ -17,9 +17,19 @@ const initialState = {
 };
 
 export const ItemDetailForm = ({ product }) =>  {
+    const navigate = useNavigate();
     const [formValue, setFormValue] = useState(initialState);
 
-    const mutation = useMutation(addProduct);
+    const queryClient = useQueryClient();
+    const mutation = useMutation(addProduct, {
+        onSuccess: (res, { id }) => {
+            queryClient.setQueryData('cartList', (old) => {
+                return [...old, { id }];
+            });
+
+            navigate('/products', { replace: true });
+        }
+    });
 
     const handleChange = (event) => {
     const target = event.target;
@@ -36,7 +46,7 @@ export const ItemDetailForm = ({ product }) =>  {
       const { id } = product;
       e.preventDefault();
       
-      mutation.mutate({id, ...formValue });
+      mutation.mutate({ id, ...formValue });
       setFormValue(initialState);
       initForm();
     };
@@ -57,7 +67,7 @@ export const ItemDetailForm = ({ product }) =>  {
             colorCode: getFirstOption(colors),
             storageCode: getFirstOption(internalMemory)
         });
-    });
+    }, [product]);
 
     useEffect(() => {
         initForm();
