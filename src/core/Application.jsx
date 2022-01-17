@@ -9,7 +9,14 @@ import RoutesProvider from 'core/RoutesProvider';
 import translations from 'core/translations';
 import 'core/sanitize/reset.css';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      notifyOnChangeProps: false
+    }
+  }
+});
 
 const Application = () => {
   return (
