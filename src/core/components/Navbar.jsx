@@ -31,7 +31,7 @@ export const Navbar = ({ title }) => {
 
           <Box ml={2}>
             <Typography variant="h6" component="div">
-              <CustomBadge />
+              <CustomBadge items={5} />
             </Typography>
           </Box>
         </Toolbar>

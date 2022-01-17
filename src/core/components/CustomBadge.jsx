@@ -20,6 +20,6 @@ CustomBadge.defaultProps = {
   items: 0,
 };
 
-CustomBadge.PropTypes = {
+CustomBadge.propTypes = {
   items: PropTypes.number,
 };
