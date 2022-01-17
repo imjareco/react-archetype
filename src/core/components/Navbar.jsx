@@ -24,7 +24,7 @@ export const Navbar = ({ title }) => {
 
   useEffect(() => {
     setCartList(items);
-    console.log(items);
+    console.log('cartList', items);
   }, [items]);
 
   return (
