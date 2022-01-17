@@ -1,0 +1,19 @@
+{
+    "core.title.app": "Zero {app} EN",
+  
+    "core.save": "Save",
+    "core.edit": "Edit",
+    "core.delete": "Delete",
+    "core.detail": "Detail",
+    "core.back": "Back",
+    "core.cancel": "Cancel",
+    "core.confirm": "Confirm",
+    "core.loading": "Loading...",
+    "core.actions": "Actions",
+    "core.submit": "Submit",
+    "core.password": "Password",
+    "core.yes": "Yes",
+    "core.no": "No",
+    "core.logout": "Logout"
+  
+  }

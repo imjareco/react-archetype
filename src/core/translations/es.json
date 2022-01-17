@@ -1,0 +1,18 @@
+{
+    "core.title.app": "Zero {app} ES",
+  
+    "core.save": "Guardar",
+    "core.edit": "Editar",
+    "core.delete": "Borrar",
+    "core.detail": "Detalle",
+    "core.back": "Volver",
+    "core.cancel": "Cancelar",
+    "core.confirm": "Confirmar",
+    "core.loading": "Cargando...",
+    "core.actions": "Acciones",
+    "core.send": "Enviar",
+    "core.password": "Password",
+    "core.yes": "Si",
+    "core.no": "No",
+    "core.logout": "Cerrar Sesión"
+}
