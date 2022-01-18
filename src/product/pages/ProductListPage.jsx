@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useQuery, useQueryClient } from 'react-query';
 import { getProducts } from 'product/services';
+import { useTranslations } from 'core/i18n';
 
 import { SearchBar } from 'core/components/SearchBar';
 import Grid from '@mui/material/Grid';
@@ -11,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import LoadingBox from 'core/components/LoadingBox';
 
 const ProductListPage = () =>  {
+  const { t } = useTranslations();
   const [products, setProducts] = useState([]);
   const [paramsSearch, setParamsSearch] = useState('');
 
@@ -56,7 +58,7 @@ const ProductListPage = () =>  {
     <>
       <Grid container maxWidth="xl" pb={2}>
         <Grid item xl>
-          <Typography mt={2} variant="h4">Product List</Typography>
+          <Typography mt={2} variant="h4">{t('products.list')}</Typography>
         </Grid>
         <Grid item xl={3}>
           <SearchBar setParams={setParamsSearch}/>

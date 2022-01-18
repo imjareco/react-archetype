@@ -1,6 +1,6 @@
 {
     "translation": {
-        "core.title.app": "Zero {{app}} ES",
+        "core.title.app": "{{app}}",
         
         "core.lang.english": "Inglés",
         "core.lang.spanish": "Español",
@@ -19,6 +19,9 @@
         "core.password": "Password",
         "core.yes": "Si",
         "core.no": "No",
-        "core.logout": "Cerrar Sesión"
+        "core.logout": "Cerrar Sesión",
+
+        "products": "Productos",
+        "products.list": "Lista de productos"
     }
 }

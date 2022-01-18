@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -39,18 +38,4 @@ export const LanguageSelector = () =>  {
             </Grid>
         </Box>
     );
-
 };
-
-LanguageSelector.defaultProps = {
-    options: [],
-};
-
-LanguageSelector.propTypes = {
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    options: PropTypes.array.isRequired,
-    onChange: PropTypes.func.isRequired,
-};
-

@@ -24,7 +24,8 @@ export const ItemDetailForm = ({ product }) =>  {
     const mutation = useMutation(addProduct, {
         onSuccess: (res, { id }) => {
             queryClient.setQueryData('cartList', (old) => {
-                return [...old, { id }];
+                console.log(old);
+                return [...(Array.isArray(old) && old), { id }];
             });
 
             navigate('/products', { replace: true });
