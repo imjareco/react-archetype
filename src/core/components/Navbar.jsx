@@ -8,7 +8,9 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+
 import { CustomBadge } from './CustomBadge';
+import { LanguageSelector } from './LanguageSelector';
 
 export const Navbar = ({ title }) => {
   const navigate = useNavigate();
@@ -43,6 +45,10 @@ export const Navbar = ({ title }) => {
               {title}
             </Typography>
           </Link>
+
+          <Box ml={2} sx={{ flexGrow: 1 }}>
+            <LanguageSelector />
+          </Box>
 
           <Box ml={2}>
             <Typography variant="h6" component="div">

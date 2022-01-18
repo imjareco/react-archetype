@@ -1,18 +1,24 @@
 {
-    "core.title.app": "Zero {app} ES",
-  
-    "core.save": "Guardar",
-    "core.edit": "Editar",
-    "core.delete": "Borrar",
-    "core.detail": "Detalle",
-    "core.back": "Volver",
-    "core.cancel": "Cancelar",
-    "core.confirm": "Confirmar",
-    "core.loading": "Cargando...",
-    "core.actions": "Acciones",
-    "core.send": "Enviar",
-    "core.password": "Password",
-    "core.yes": "Si",
-    "core.no": "No",
-    "core.logout": "Cerrar Sesión"
+    "translation": {
+        "core.title.app": "Zero {{app}} ES",
+        
+        "core.lang.english": "Inglés",
+        "core.lang.spanish": "Español",
+    
+        "core.search": "Buscar",
+        "core.save": "Guardar",
+        "core.edit": "Editar",
+        "core.delete": "Borrar",
+        "core.detail": "Detalle",
+        "core.back": "Volver",
+        "core.cancel": "Cancelar",
+        "core.confirm": "Confirmar",
+        "core.loading": "Cargando...",
+        "core.actions": "Acciones",
+        "core.send": "Enviar",
+        "core.password": "Password",
+        "core.yes": "Si",
+        "core.no": "No",
+        "core.logout": "Cerrar Sesión"
+    }
 }

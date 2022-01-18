@@ -7,7 +7,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
+import { useTranslations } from 'core/i18n';
+
 export const SearchBar = ({ setParams }) => {
+  const { t } = useTranslations();
 const [value, setValue] = useState('');
 
 const handleClick = () => {
@@ -22,7 +25,7 @@ const handleClick = () => {
               <TextField
                 id="search"
                 name="search"
-                label="Search"
+                label={t('core.search')}
                 variant="standard"
                 value={value}
                 onChange={({ target }) => setValue(target.value.toLowerCase())}
