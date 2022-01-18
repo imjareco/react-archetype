@@ -1,6 +1,11 @@
 {
-    "core.title.app": "Zero {app} EN",
-  
+  "translation": {
+    "core.title.app": "Zero {{app}} EN",
+    
+    "core.lang.english": "English",
+    "core.lang.spanish": "Spanish",
+
+    "core.search": "Search",
     "core.save": "Save",
     "core.edit": "Edit",
     "core.delete": "Delete",
@@ -15,5 +20,5 @@
     "core.yes": "Yes",
     "core.no": "No",
     "core.logout": "Logout"
-  
   }
+}
