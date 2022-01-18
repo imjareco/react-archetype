@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# React Archetype
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Reactjs archetype with react-query and MUI components.
 
 ## Available Scripts
 
