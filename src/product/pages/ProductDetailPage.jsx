@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { useQuery } from "react-query";
@@ -13,56 +13,46 @@ import LoadingBox from "core/components/LoadingBox";
 import { ItemDetailBox } from "product/components/ItemDetailBox";
 
 const ProductDetailPage = () => {
-    let { idProduct } = useParams();
-    const navigate = useNavigate();
-    const [product, setProduct] = useState(undefined);
-    const goHome = () => navigate("/products", { replace: true });
+	let { idProduct } = useParams();
+	const navigate = useNavigate();
+	const [product, setProduct] = useState(undefined);
+	const goHome = () => navigate("/products", { replace: true });
 
-    const { data: item, isSuccess } = useQuery(
-        ["getProduct", idProduct], 
-        () => getProduct(idProduct),
-        {
-            // The query will not execute until the idProduct exists
-            enabled: !!idProduct,
-        }
-    );
+	const { data: item, isSuccess } = useQuery(
+		["getProduct", idProduct],
+		() => getProduct(idProduct),
+		{
+			// The query will not execute until the idProduct exists
+			enabled: !!idProduct,
+		}
+	);
 
-    useEffect(() => {
-        if (isSuccess) {
-            setProduct(item);
-        }
-    }, [isSuccess]);
+	useEffect(() => {
+		if (isSuccess) {
+			setProduct(item);
+		}
+	}, [isSuccess]);
 
-    const {
-        brand,
-        model,
-    } = product ?? {};
-  
-    return(
-        <>      
-            <Grid container maxWidth="xl" pb={2}>
-                <Grid item xl={11} mt={2}>
-                    <Typography variant="h4">{!product ? "Loading..." : `${brand} ${model}`}</Typography>
-                </Grid>
-                <Grid item xl={1} pt={2}>
-                    <IconButton
-                        color="primary"
-                        component="span"
-                        onClick={goHome}
-                    >
-                        <ArrowBack />
-                    </IconButton>
-                </Grid>
-            </Grid>
+	const { brand, model } = product ?? {};
 
-            {!product ? 
-                <LoadingBox /> 
-                :        
-                <ItemDetailBox product={product} />
-            }
-        </>
-    );
+	return (
+		<>
+			<Grid container maxWidth="xl" pb={2}>
+				<Grid item xl={11} mt={2}>
+					<Typography variant="h4">
+						{!product ? "Loading..." : `${brand} ${model}`}
+					</Typography>
+				</Grid>
+				<Grid item xl={1} pt={2}>
+					<IconButton color="primary" component="span" onClick={goHome}>
+						<ArrowBack />
+					</IconButton>
+				</Grid>
+			</Grid>
 
+			{!product ? <LoadingBox /> : <ItemDetailBox product={product} />}
+		</>
+	);
 };
 
 export default ProductDetailPage;

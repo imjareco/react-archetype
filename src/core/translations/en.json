@@ -1,27 +1,27 @@
 {
-  "translation": {
-    "core.title.app": "{{app}}",
-    
-    "core.lang.english": "English",
-    "core.lang.spanish": "Spanish",
+	"translation": {
+		"core.title.app": "{{app}}",
 
-    "core.search": "Search",
-    "core.save": "Save",
-    "core.edit": "Edit",
-    "core.delete": "Delete",
-    "core.detail": "Detail",
-    "core.back": "Back",
-    "core.cancel": "Cancel",
-    "core.confirm": "Confirm",
-    "core.loading": "Loading...",
-    "core.actions": "Actions",
-    "core.submit": "Submit",
-    "core.password": "Password",
-    "core.yes": "Yes",
-    "core.no": "No",
-    "core.logout": "Logout",
+		"core.lang.english": "English",
+		"core.lang.spanish": "Spanish",
 
-    "products": "Products",
-    "products.list": "Products list"
-  }
+		"core.search": "Search",
+		"core.save": "Save",
+		"core.edit": "Edit",
+		"core.delete": "Delete",
+		"core.detail": "Detail",
+		"core.back": "Back",
+		"core.cancel": "Cancel",
+		"core.confirm": "Confirm",
+		"core.loading": "Loading...",
+		"core.actions": "Actions",
+		"core.submit": "Submit",
+		"core.password": "Password",
+		"core.yes": "Yes",
+		"core.no": "No",
+		"core.logout": "Logout",
+
+		"products": "Products",
+		"products.list": "Products list"
+	}
 }
