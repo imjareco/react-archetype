@@ -1,3 +1,3 @@
-import appBuilder from 'core';
+import appBuilder from "core";
 
 appBuilder();
