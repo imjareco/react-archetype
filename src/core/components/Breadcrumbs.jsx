@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
-import { useQueryClient } from 'react-query';
+import { useQueryClient } from "react-query";
 
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
-import { useTranslations } from 'core/i18n';
+import { useTranslations } from "core/i18n";
 
 export const BreadcrumbsWrapper = () =>  {
     const { t } = useTranslations();
@@ -22,7 +22,7 @@ export const BreadcrumbsWrapper = () =>  {
     const queryClient = useQueryClient();
 
     useEffect(() => {
-        const state = queryClient.getQueryState('getProducts');
+        const state = queryClient.getQueryState("getProducts");
         if (idProduct && state) {
             setProduct(state.data.find(({ id }) => id === idProduct));
         }
@@ -30,7 +30,7 @@ export const BreadcrumbsWrapper = () =>  {
 
     useEffect(() => {
         if (pathname) {
-            setKeys(pathname.split('/').filter((item) => item));
+            setKeys(pathname.split("/").filter((item) => item));
         }
     }, [pathname]);
 
@@ -44,7 +44,7 @@ export const BreadcrumbsWrapper = () =>  {
                     {keys.map((item, i) => {
                         const isLastItem = keys.length - 1 === i;
                         return (
-                            <Link key={i} underline={isLastItem ? 'none' : 'hover'} color="inherit" onClick={() => isLastItem ? null : navigate(item)}>
+                            <Link key={i} underline={isLastItem ? "none" : "hover"} color="inherit" onClick={() => isLastItem ? null : navigate(item)}>
                                 <Typography color="text.primary">{item === idProduct ? `${product.brand} ${product.model}` : t(item)}</Typography>
                             </Link>
                         );                    

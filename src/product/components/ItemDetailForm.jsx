@@ -1,19 +1,19 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
-import { useMutation, useQueryClient } from 'react-query';
-import { addProduct } from 'product/services';
+import React, { useCallback, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { useMutation, useQueryClient } from "react-query";
+import { addProduct } from "product/services";
 
-import Button from '@mui/material/Button';
-import ShoppingBag from '@mui/icons-material/ShoppingCart';
-import Grid from '@mui/material/Grid';
-import FormControl from '@mui/material/FormControl';
+import Button from "@mui/material/Button";
+import ShoppingBag from "@mui/icons-material/ShoppingCart";
+import Grid from "@mui/material/Grid";
+import FormControl from "@mui/material/FormControl";
 
-import { SelectInput } from 'core/components/SelectInput';
+import { SelectInput } from "core/components/SelectInput";
 
 const initialState = {
-    colorCode: '',
-    storageCode: '',
+    colorCode: "",
+    storageCode: "",
 };
 
 export const ItemDetailForm = ({ product }) =>  {
@@ -23,33 +23,33 @@ export const ItemDetailForm = ({ product }) =>  {
     const queryClient = useQueryClient();
     const mutation = useMutation(addProduct, {
         onSuccess: (res, { id }) => {
-            queryClient.setQueryData('cartList', (old) => {
+            queryClient.setQueryData("cartList", (old) => {
                 console.log(old);
                 return [...(Array.isArray(old) && old), { id }];
             });
 
-            navigate('/products', { replace: true });
+            navigate("/products", { replace: true });
         }
     });
 
     const handleChange = (event) => {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        const name = target.name;
 
-    setFormValue({
+        setFormValue({
             ...formValue,
             [name]: value
         });
     };
 
     const handleSubmit = (e) => {
-      const { id } = product;
-      e.preventDefault();
+        const { id } = product;
+        e.preventDefault();
       
-      mutation.mutate({ id, ...formValue });
-      setFormValue(initialState);
-      initForm();
+        mutation.mutate({ id, ...formValue });
+        setFormValue(initialState);
+        initForm();
     };
 
     const getFirstOption = (items) => {
@@ -58,7 +58,7 @@ export const ItemDetailForm = ({ product }) =>  {
                 const [item] = items;
                 return item;
             }
-        return '';
+            return "";
         }
     };
 
