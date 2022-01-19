@@ -29,9 +29,17 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run lint`
+
+Check linter errors.
+
 ### `npm run lint:fix`
 
 Launches the fix linter.
+
+### `npm run format`
+
+Launches prettier formater code.
 
 ### `npm run eject`
 
