@@ -22,6 +22,9 @@
 		"core.logout": "Cerrar Sesión",
 
 		"products": "Productos",
-		"products.list": "Lista de productos"
+		"products.list": "Lista de productos",
+
+		"products.toast.addPrefix": "Un nuevo producto",
+		"products.toast.add": "{{product}} ha sido añadido a su compra"
 	}
 }

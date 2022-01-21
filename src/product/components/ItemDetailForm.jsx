@@ -2,14 +2,16 @@ import { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";
+
 import { addProduct } from "product/services";
+import { useTranslations } from "core/i18n";
+import showNotification from "core/functions/showNotification";
+import { SelectInput } from "core/components/SelectInput";
 
 import Button from "@mui/material/Button";
 import ShoppingBag from "@mui/icons-material/ShoppingCart";
 import Grid from "@mui/material/Grid";
 import FormControl from "@mui/material/FormControl";
-
-import { SelectInput } from "core/components/SelectInput";
 
 const initialState = {
 	colorCode: "",
@@ -18,15 +20,23 @@ const initialState = {
 
 export const ItemDetailForm = ({ product }) => {
 	const navigate = useNavigate();
+	const { t } = useTranslations();
 	const [formValue, setFormValue] = useState(initialState);
 
 	const queryClient = useQueryClient();
 	const mutation = useMutation(addProduct, {
 		onSuccess: (res, { id }) => {
-			queryClient.setQueryData("cartList", (old) => {
-				console.log(old);
+			queryClient.setQueryData("cartList", (old = []) => {
 				return [...(Array.isArray(old) && old), { id }];
 			});
+
+			showNotification(
+				t("products.toast.add", {
+					product: product
+						? `${product.brand} ${product.model}`
+						: t("products.toast.addPrefix"),
+				})
+			);
 
 			navigate("/products", { replace: true });
 		},

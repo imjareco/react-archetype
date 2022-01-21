@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 
 import { useTranslations } from "core/i18n";
-
-import { Box, Container } from "@mui/material";
+import { NotificationContainer } from "core/components/NotificationContainer";
 import { Navbar } from "core/components/Navbar";
 import { BreadcrumbsWrapper } from "core/components/Breadcrumbs";
+
+import { Box, Container } from "@mui/material";
 
 export const Layout = () => {
 	const { t } = useTranslations();
@@ -16,6 +17,7 @@ export const Layout = () => {
 					<BreadcrumbsWrapper />
 					<Outlet />
 				</Box>
+				<NotificationContainer />
 			</Container>
 		</>
 	);
