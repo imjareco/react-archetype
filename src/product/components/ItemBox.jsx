@@ -13,7 +13,7 @@ export const ItemBox = ({ item }) => {
 
 	return (
 		<Box onClick={() => navigate(`/products/${id}`, { replace: true })}>
-			<Paper>
+			<Paper elevation={3}>
 				<Box
 					padding={2}
 					sx={{ width: "200px", height: "250px", cursor: "pointer" }}
