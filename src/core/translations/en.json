@@ -22,6 +22,9 @@
 		"core.logout": "Logout",
 
 		"products": "Products",
-		"products.list": "Products list"
+		"products.list": "Products list",
+
+		"products.toast.addPrefix": "A new product",
+		"products.toast.add": "{{product}} has been added to you cart"
 	}
 }
