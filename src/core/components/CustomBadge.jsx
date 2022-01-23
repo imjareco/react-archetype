@@ -2,13 +2,12 @@ import PropTypes from "prop-types";
 
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-export const CustomBadge = ({ items }) => {
+export const CustomBadge = ({ icon, items, color, ...props }) => {
 	return (
-		<IconButton>
-			<Badge badgeContent={items} color="secondary">
-				<ShoppingCartIcon />
+		<IconButton {...props}>
+			<Badge badgeContent={items} color={color}>
+				{icon}
 			</Badge>
 		</IconButton>
 	);
@@ -16,8 +15,12 @@ export const CustomBadge = ({ items }) => {
 
 CustomBadge.defaultProps = {
 	items: 0,
+	color: "error",
 };
 
 CustomBadge.propTypes = {
+	icon: PropTypes.node.isRequired,
 	items: PropTypes.number,
+	color: PropTypes.string,
+	props: PropTypes.object,
 };
