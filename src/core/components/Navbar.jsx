@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { useQuery, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 
-import Box from "@mui/material/Box";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
+import { AppBar, Box, Link, Toolbar, Typography } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+import Sidebar from "./Sidebar";
 import { CustomBadge } from "./CustomBadge";
+import { CartItemList } from "product/components/CartItemList";
 import { LanguageSelector } from "./LanguageSelector";
+
 export const Navbar = ({ title }) => {
 	const navigate = useNavigate();
-	const [cartList, setCartList] = useState([]);
+	const [isOpen, setIsOpen] = useState(false);
+
 	const queryClient = useQueryClient();
 	const { data: items } = useQuery(
 		["cartList"],
@@ -21,11 +23,6 @@ export const Navbar = ({ title }) => {
 			initialData: [],
 		}
 	);
-
-	useEffect(() => {
-		setCartList(items);
-		console.log("cartList", items);
-	}, [items]);
 
 	return (
 		<Box sx={{ flexGrow: 1 }}>
@@ -52,12 +49,17 @@ export const Navbar = ({ title }) => {
 					</Box>
 
 					<Box ml={2}>
-						<Typography variant="h6" component="div">
-							<CustomBadge items={cartList.length} />
-						</Typography>
+						<CustomBadge
+							icon={<ShoppingCartIcon />}
+							items={items.length}
+							onClick={() => setIsOpen(true)}
+						/>
 					</Box>
 				</Toolbar>
 			</AppBar>
+			<Sidebar open={isOpen} setOpen={setIsOpen}>
+				<CartItemList items={items} />
+			</Sidebar>
 		</Box>
 	);
 };
